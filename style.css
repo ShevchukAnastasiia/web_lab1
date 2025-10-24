@@ -184,7 +184,7 @@ a:link {
 }
 
 a:active {
-  color: #FF0000;
+  color: #00d423;
 }
 
 p:not(.intro) {
@@ -265,3 +265,6 @@ input:checked + label {
 .unicode-normal-demo {
   unicode-bidi: normal; /* unicode-bidi: normal */
 }
+
+
+
