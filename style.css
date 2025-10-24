@@ -1,0 +1,57 @@
+body {
+  background-color: #43c472;
+}
+
+a:link {
+  color: black;
+}
+
+a:active {
+  color:grey;
+}
+
+img {
+  position: relative;
+  z-index: 5;
+  vertical-align: bottom;
+}
+
+img.image-on-left {
+  float: left;
+}
+
+footer {
+  clear: both;
+}
+
+.main-content {
+  min-height: 400px;
+}
+
+.wrapper {
+  max-width: 1200px;
+}
+
+p {
+  line-height: normal;
+}
+
+.text-box {
+  overflow: scroll;
+}
+
+.clipped-image {
+  clip: rect(0px, 50px, 50px, 0px);
+}
+
+#header {
+  width: 800px;
+  height: 150px;
+  background-image: url('images/me.jpg');
+  background-attachment: scroll;
+  background-position: center;
+}
+
+.warning::after {
+  content: " (Увага!)";
+}
