@@ -1,57 +1,267 @@
+
+
 body {
-  background-color: #43c472;
+  /* Встановлюємо колір фону, схожий на той, що у вас на скріншотах */
+  background-color: #e0ffe0; /* background-color: <колір> */
+  color: #333; /* color: <колір> */
+  
+  /* Обмежуємо ширину сторінки і центруємо її */
+  max-width: 960px; /* max-width */
+  width: 90%; /* width: <процент> (не було, але логічно додати) */
+
+
+  margin-top: 2%; /* margin-top:<процент> */
+  margin-left: auto; /* margin-left */
+  margin-right: auto; /* margin-right */
+
+
+  padding: 15px; /* padding:<розмір> */
+}
+
+
+h1#main-title { /* Селектор - ідендифікаторів (#id) */
+  color: #005500;
+  /* Використовуємо border-top-* властивості */
+  border-top-width: 4px; /* border-top-width: <розмір> */
+  border-top-style: groove; /* border-top-style: groove */
+  border-top-color: #008800; /* border-top-color:<колір> */
+  padding-top: 10px; /* padding-top:<розмір> */
+}
+
+p[dir="ltr"] { /* Селектор - атрибутів:[attr] */
+  line-height: 1.6; /* line-height (не normal, але <розмір> не вказано, 1.6 - це коефіцієнт) */
+  line-height: 24px; /* line-height: <розмір> */
+}
+
+
+p::first-line { /* Псевдоелементи ::first-line */
+  font-weight: bold;
+}
+
+hr {
+  width: 100%; /* Атрибут width, але реалізований в CSS */
+  border-width: thin; /* border-width:thin */
+  border-color: #555; /* border-color */
+}
+
+tt.code-example { /* Селектор - класів (.) */
+  background-color: #f4f4f4;
+  border-left-style: double; /* border-left-style: double */
+  border-left-width: thin; /* border-left-width:thin */
+  padding-left: 5px; /* padding-left:<розмір> */
+  direction: ltr; /* direction: ltr */
+}
+
+s[lang|="uk"] { /* Селектор - атрибутів:[attr|=value] */
+  color: #990000;
+}
+
+
+.drug-item {
+  background-color: #f8f8f8;
+  padding: 10px; /* padding */
+  margin-top: 20px; /* margin-top:<розмір> */
+  border-left-style: outset; /* border-left-style: outset */
+  border-left-width: 5px; /* border-left-width: <розмір> */
+  position: relative; /* position: relative */
+  overflow: visible; /* overflow: visible */
+}
+
+.drug-item img {
+  width: 150px; /* width */
+  height: 150px; /* height: <розмір> */
+  /* hspace і vspace застаріли, емулюємо їх через margin */
+  margin-right: 15px; /* margin-right:<розмір> */
+  margin-bottom: 5px;
+  float: left; /* float: left */
+  vertical-align: baseline; /* vertical-align: baseline */
+}
+
+blockquote[class~="quote"] { /* Селектор - атрибутів:[attr~=value] */
+  margin-left: 0; /* margin-left:<розмір> */
+  padding-left: 10px; /* padding-left:<розмір> */
+  border-left-style: groove; /* border-left-style: groove */
+  border-color: #ccc; /* border-color */
+}
+
+pre.instructions {
+  overflow: scroll; /* overflow: scroll */
+  background-color: #eee;
+  padding: 5px; /* padding */
+  line-height: normal; /* line-height: normal */
+}
+
+kbd {
+  background-color: #333;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+samp#serial-code { /* Селектор ID */
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.drug-item::after { /* Псевдоелементи ::after */
+  content: " (Товар в наявності)";
+  color: green;
+  display: block;
+  clear: left; /* clear: left */
+  padding-top: 10px; /* padding-top */
+}
+
+header#page-header { /* Селектор ID */
+  padding: 10px;
+  border-bottom-color: #4CAF50; /* border-bottom-color:<колір> */
+  border-width: 2px; /* border-width */
+  border-bottom-style: solid; /* Не було у списку, але потрібно для border-bottom-color */
+  background-position: left; /* background-position: left */
+}
+
+aside.sidebar {
+  float: left; /* float: left */
+  width: 28%; /* width у відсотках */
+  margin-right: 2%; /* margin-right */
+  min-height: 100px; /* min-height: <розмір> */
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+div.main-content {
+  float: left;
+  width: 70%;
+  position: static; /* position: static */
+  z-index: auto; /* z-index: auto */
+}
+
+footer.page-footer {
+  clear: left; /* clear: left */
+  margin-top: 20px; /* margin-top */
+  padding-top: 10px; /* padding-top */
+  border-top-style: outset; /* border-top-style: outset */
+  border-top-width: thin; /* border-top-width:thin */
+}
+
+del {
+  color: red;
+  text-decoration: line-through;
+}
+ins {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+sup {
+  vertical-align: text-top; /* vertical-align: text-top */
+}
+sub {
+  vertical-align: bottom; /* vertical-align: bottom */
+}
+
+span.highlight { /* Селектор класу */
+  background-color: yellow;
+  color: black !important; /* Демонстрація !important */
+}
+
+bdo[lang="he"] { /* [attr] */
+  direction: rtl; /* Не ltr, але демонструє direction */
+  unicode-bidi: bidi-override; /* unicode-bidi: bidi-override */
+}
+
+h2 + p {
+  font-style: italic;
+}
+
+.news-list li:first-child {
+  font-size: 1.1em;
+  color: #005500;
 }
 
 a:link {
-  color: black;
+  color: #0000FF;
 }
 
 a:active {
-  color:grey;
+  color: #FF0000;
 }
 
-img {
-  position: relative;
-  z-index: 5;
-  vertical-align: bottom;
+p:not(.intro) {
+  line-height: 1.5; /* line-height */
 }
 
-img.image-on-left {
-  float: left;
+div:empty {
+  display: none;
 }
 
-footer {
-  clear: both;
+
+input:disabled {
+  background-color: #f0f0f0;
+}
+input:checked + label {
+  font-weight: bold;
 }
 
-.main-content {
-  min-height: 400px;
+.display-table-demo {
+  display: table;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.display-table-row-demo {
+  display: table-row;
+}
+.display-table-footer-demo {
+  display: table-footer-group;
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+.display-table-caption-demo {
+  display: table-caption;
+  caption-side: bottom;
+  padding-top: 5px;
+}
+.display-inline-demo {
+  display: inline; /* display: inline */
 }
 
-.wrapper {
-  max-width: 1200px;
+.display-run-in-demo {
+  display: run-in;
 }
 
-p {
-  line-height: normal;
+.border-right-demo {
+  border-right-style: none; /* border-right-style:none */
+  /* інші значення: double, groove, outset */
 }
 
-.text-box {
-  overflow: scroll;
+.visual-demo {
+  height: 50%; /* height: <процент> */
+  min-height: 50px; /* min-height: <розмір> */
+  vertical-align: -10px; /* vertical-align: <розмір> */
+  visibility: visible; /* visibility: visible */
+  outline-style: dashed; /* outline-style */
+  outline: 2px dashed blue; /* outline */
 }
 
-.clipped-image {
-  clip: rect(0px, 50px, 50px, 0px);
+.hidden-demo {
+  visibility: hidden; /* visibility: hidden */
 }
 
-#header {
-  width: 800px;
-  height: 150px;
-  background-image: url('images/me.jpg');
-  background-attachment: scroll;
-  background-position: center;
+.clip-demo {
+  position: absolute; /* Потрібно для clip */
+  clip: rect(0, 50px, 50px, 0); /* clip: rect(,,,); */
 }
 
-.warning::after {
-  content: " (Увага!)";
+.background-image-demo {
+  background-image: url('images/my-bg.png'); /* background-image */
+  background-attachment: scroll; /* background-attachment: scroll */
+  background-position: center; /* background-position: center */
+}
+
+.clear-none-demo {
+  clear: none; /* clear: none */
+}
+
+.unicode-normal-demo {
+  unicode-bidi: normal; /* unicode-bidi: normal */
 }
