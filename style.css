@@ -13,6 +13,7 @@ a:active {
 img {
   position: relative;
   z-index: 5;
+  vertical-align: bottom;
 }
 
 img.image-on-left {
@@ -33,10 +34,6 @@ footer {
 
 p {
   line-height: normal;
-}
-
-img {
-  vertical-align: bottom;
 }
 
 .text-box {
