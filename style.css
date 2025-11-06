@@ -1,5 +1,3 @@
-
-
 body {
   /* Встановлюємо колір фону, схожий на той, що у вас на скріншотах */
   background-color: #e0ffe0; /* background-color: <колір> */
@@ -266,5 +264,63 @@ input:checked + label {
   unicode-bidi: normal; /* unicode-bidi: normal */
 }
 
+/* --- СТИЛІ ДЛЯ НОВОГО МЕНЮ ТА СТОРІНОК --- */
 
+/* Стиль для синього хедера з посиланням на Головне Меню */
+.main-header {
+    background-color: #0056b3; /* Темно-синій для контрасту з зеленим */
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+}
+
+.main-header a {
+    color: rgb(86, 150, 85);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.main-header a:hover {
+    text-decoration: underline;
+}
+
+/* Заміна застарілого атрибута 'compact' для списків */
+.compact-list {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.compact-list li, .compact-list ol {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/* --- Стилі для menu.html --- */
+.menu-page .main-navigation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-page .main-navigation li {
+    margin: 15px 0;
+}
+
+.menu-page .main-navigation li a {
+    display: block;
+    background-color: #ffffff; /* Білі кнопки */
+    color: #0056b3; /* Синій текст */
+    padding: 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 2px solid #0056b3;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-page .main-navigation li a:hover {
+    background-color: #0056b3; /* Інверсія кольорів при наведенні */
+    color: white;
+}
 

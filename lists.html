@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас - Аптека «Здоров’я+»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#43c472" style="color: #333;" class="lists-page" lang="uk-UA">
+
+    <header class="main-header">
+        <a href="menu.html" title="Перейти на головне меню" class="nav-link">Головне Меню Проекту</a>
+    </header>
+
+    <main id="main-content" style="padding: 20px; background-color: #fff; margin: 20px; border-radius: 8px;">
+        
+        <h1 align="center">Інформація про "Аптеку «Здоров’я+»"</h1>
+
+        <p id="company-description" style="border-bottom: 2px solid #43c472; padding-bottom: 10px;" title="Короткий опис аптеки">
+            "Аптека «Здоров’я+»" - це ваш надійний партнер у світі здоров'я та добробуту.
+        </p>
+
+        <marquee width="100%" scrolldelay="90" scrollamount="8" vspace="10" hspace="0" truespeed>
+            🎉 Нові надходження вітамінів! Знижки на сезонні товари!
+        </marquee>
+
+        <h2 id="departments-title">Наші Відділи</h2>
+        <ol start="1" type="A" class="compact-list" id="departments-list">
+            <li>Відділ рецептурних препаратів</li>
+            <li>Відділ безрецептурних засобів</li>
+            <ol type="a" style="margin: 5px 0;">
+                <li>Засоби від застуди</li>
+                <li>Знеболюючі</li>
+            </ol>
+            <li value="5">Відділ лікувальної косметики</li>
+            <li>
+                Відділ дитячих товарів
+                (<a href="page2.html" rel="next" class="nav-link" lang="en" title="Go to Catalog">Див. у каталозі</a>)
+            </li>
+        </ol>
+
+        <h2 id="products-title">Популярні Товари</h2>
+        <ul type="disc" title="Наші бестселери">
+            <li>Вітамін C</li>
+            <li style="list-style-type: square;">Магній B6</li>
+            <li>Пробіотики</li>
+        </ul>
+
+        <h2 id="terms-title">Фармацевтичні Терміни</h2>
+        <dl id="pharma-terms">
+            <dt>Анальгетик</dt>
+            <dd>Лікарський засіб, призначений для зняття больових відчуттів.</dd>
+            <dt>Пробіотик</dt>
+            <dd>Корисні бактерії, що позитивно впливають на мікрофлору кишківника.</dd>
+        </dl>
+
+        <div style="margin-top: 20px; padding: 10px; border: 1px solid #ddd;">
+            <input type="checkbox" id="promo-subscribe" checked disabled style="margin-right: 5px;">
+            <label for="promo-subscribe" title="Ви вже підписані на наші акції">Підписка на акції</label>
+        </div>
+
+        <menu type="toolbar" label="actions" title="Меню дій" style="background: #eee; padding: 5px; margin-top: 15px;">
+            <li><button type="button">Замовити дзвінок</button></li>
+            <li><button type="button">Залишити відгук</button></li>
+        </menu>
+
+        <div style="margin-top: 20px;">
+            <a href="pricelyst.pdf" 
+               download="Pharmacy_Pricelist.pdf" 
+               type="application/pdf" 
+               name="price-link" 
+               accesskey="p" 
+               style="color: green; font-weight: bold; text-decoration: underline;" 
+               rev="document">
+               Завантажити прайс-лист (Accesskey: P)
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <p align="center">© 2025 Аптека «Здоров’я+». Всі права захищені.</p>
+        <p align="center">Контакти: info@zdorovya-plus.ua | Тел.: +380 44 123 4567</p>
+    </footer>
+
+</body>
+</html>
