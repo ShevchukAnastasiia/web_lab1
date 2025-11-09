@@ -324,3 +324,62 @@ input:checked + label {
     color: white;
 }
 
+/* --- СТИЛІ ДЛЯ ЛАБОРАТОРНОЇ 4 (ТАБЛИЦІ) --- */
+
+/* Стилі для Першої таблиці (Прайс-лист) */
+.price-table {
+    border: 1px solid #aaa;
+    border-collapse: collapse; /* Прибирає подвійні рамки */
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+.price-table th, .price-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.price-table caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
+}
+
+/* Стиль для комірок з вирівнюванням по символу (char) */
+td[align="char"], th[align="char"] {
+    text-align: right;
+    padding-right: 20px; /* Імітація вирівнювання по символу */
+}
+
+/* --- СТИЛІ ДЛЯ ДРУГОЇ (Геометричної) ТАБЛИЦІ --- */
+
+.geometric-table {
+    border-collapse: collapse; /* ОБОВ'ЯЗКОВО для рамок */
+    table-layout: fixed; /* Рівномірний розподіл комірок */
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    border: 3px solid #0056b3; /* Головна синя рамка */
+}
+
+.geometric-table caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
+}
+
+.geometric-table td {
+    border: 2px solid #555; /* ОБОВ'ЯЗКОВО - рамки для кожної комірки */
+    padding: 5px;
+    height: 40px; 
+    background-color: #fff;
+    vertical-align: middle; /* Текст по центру комірки */
+    font-weight: normal; /* Робимо звичайний шрифт, жирний будемо ставити вручну */
+    font-size: 0.9em; /* Трохи менший шрифт, щоб все влізло */
+}
+
+.geometric-table .cell-highlight {
+    background-color: #f0f0f0; /* Світло-сірий фон для комірок з rowspan */
+}
