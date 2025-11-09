@@ -264,27 +264,5 @@ input:checked + label {
   unicode-bidi: normal; /* unicode-bidi: normal */
 }
 
-/* --- СТИЛІ ДЛЯ ГЕОМЕТРИЧНОЇ ТАБЛИЦІ (ВАРІАНТ 21) --- */
 
-.geometric-table {
-    border-collapse: collapse; /* Це з'єднає всі рамки в одну */
-    table-layout: fixed; 
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-    border: 3px solid #0056b3; /* Головна товста рамка */
-}
-
-.geometric-table td {
-    border: 2px solid #555; /* !! ОСЬ ЦЕ ГОЛОВНЕ: РАМКИ для кожної комірки */
-    padding: 5px;
-    height: 40px; 
-    background-color: #fff;
-    vertical-align: middle; 
-}
-
-/* Це для тих сірих комірок, які у вас вже видно */
-.geometric-table .cell-highlight {
-    background-color: #f0f0f0; 
-}
 
