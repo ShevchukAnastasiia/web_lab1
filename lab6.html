@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №6 (Варіант 9 - Виправлено)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        svg {
+            border: 1px solid #000;
+            background-color: #fff;
+            max-width: 600px;
+            width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        /* === Стилі для нової системи координат === */
+        
+        /* Всі фігури робота */
+        .robot-shape {
+            fill: #0000FF;
+            stroke: #000;
+            stroke-width: 2; /* Зробив лінії товстішими */
+        }
+        
+        /* Осі координат */
+        .axis {
+            stroke: #000;
+            stroke-width: 3;
+            marker-end: url(#arrowhead);
+        }
+        
+        /* Насічки (ticks) */
+        .ticks {
+            stroke: #000;
+            stroke-width: 2;
+        }
+        
+        /* Текст/цифри на осях */
+        .tick-label {
+            font-size: 20px;
+            font-family: 'Arial Narrow', sans-serif;
+            text-anchor: middle;
+            fill: #000;
+        }
+        
+        /* Текст на кривій */
+        .curved-text {
+            font-size: 24px;
+            font-weight: bold;
+            fill: #1a0dab;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Лабораторна робота №6 (Варіант 9)</h1>
+    <p>Точне відтворення системи координат.</p>
+
+    <svg width="600" height="600" viewBox="0 0 600 600">
+        
+        <defs>
+            <marker 
+                id="arrowhead" 
+                markerWidth="10" 
+                markerHeight="7" 
+                refX="3" 
+                refY="2" 
+                orient="auto"
+                markerUnits="strokeWidth">
+              <path d="M0,0 L0,4 L4,2 z" fill="#000" />
+            </marker>
+        </defs>
+
+        <g id="main-world" transform="translate(300, 300) scale(1, -1)">
+            
+            <g id="coordinate-system">
+                <path class="axis" d="M -250 0 L 300 0" />
+                <path class="axis" d="M 0 -250 L 0 200" />
+
+                <text x="310" y="0" transform="scale(1, -1)" class="tick-label" style="text-anchor: left;">X</text>
+                <text x="0" y="210" transform="scale(1, -1)" class="tick-label">Y</text>
+
+                <g class="ticks" id="x-ticks">
+                    <line x1="50" y1="-5" x2="50" y2="5" />
+                    <text x="50" y="-15" transform="scale(1, -1)" class="tick-label">1</text>
+                    
+                    <line x1="100" y1="-5" x2="100" y2="5" />
+                    <text x="100" y="-15" transform="scale(1, -1)" class="tick-label">2</text>
+                    
+                    <line x1="150" y1="-5" x2="150" y2="5" />
+                    <text x="150" y="-15" transform="scale(1, -1)" class="tick-label">3</text>
+                    
+                    <line x1="200" y1="-5" x2="200" y2="5" />
+                    <text x="200" y="-15" transform="scale(1, -1)" class="tick-label">4</text>
+                    
+                    <line x1="250" y1="-5" x2="250" y2="5" />
+                    <text x="250" y="-15" transform="scale(1, -1)" class="tick-label">5</text>
+                </g>
+
+                <g class="ticks" id="y-ticks">
+                    <line x1="-5" y1="50" x2="5" y2="50" />
+                    <text x="-15" y="50" transform="scale(1, -1)" class="tick-label">1</text>
+                    
+                    <line x1="-5" y1="100" x2="5" y2="100" />
+                    <text x="-15" y="100" transform="scale(1, -1)" class="tick-label">2</text>
+
+                    <line x1="-5" y1="-50" x2="5" y2="-50" />
+                    <text x="-15" y="-50" transform="scale(1, -1)" class="tick-label">-1</text>
+                    
+                    <line x1="-5" y1="-100" x2="5" y2="-100" />
+                    <text x="-15" y="-100" transform="scale(1, -1)" class="tick-label">-2</text>
+                </g>
+            </g>
+
+            
+            <g id="static-robot-parts" class="robot-shape">
+                <circle cx="100" cy="50" r="50" />
+                <circle cx="200" cy="50" r="50" />
+                <circle cx="100" cy="-50" r="50" />
+                <circle cx="200" cy="-50" r="50" />
+                
+                <rect x="0" y="50" width="50" height="50" />
+                <rect x="250" y="50" width="50" height="50" />
+                
+                <rect x="0" y="-100" width="50" height="50" />
+                <rect x="250" y="-100" width="50" height="50" />
+            </g>
+
+            <rect 
+                id="animated-head" 
+                class="robot-shape"
+                x="100" 
+                y="100" 
+                width="100" 
+                height="50" 
+                style="transform-origin: 150px 125px;" 
+                comment="Центр голови (x=3, y=2.5) -> (150px, 125px)"
+            >
+                <animate 
+                    attributeName="fill" 
+                    values="#0000FF; #FF0000; #00FF00; #0000FF" 
+                    dur="10s" 
+                    repeatCount="indefinite" />
+
+                <animateTransform 
+                    attributeName="transform" 
+                    type="translate" 
+                    values="0 0; 0 10; 0 0" 
+                    dur="2s" 
+                    additive="sum"
+                    repeatCount="indefinite" />
+
+                <animateTransform 
+                    attributeName="transform" 
+                    type="rotate" 
+                    values="0 150 125; -10 150 125; 10 150 125; 0 150 125" 
+                    dur="3s"
+                    additive="sum"
+                    repeatCount="indefinite" />
+
+                <animateTransform 
+                    attributeName="transform" 
+                    type="scale" 
+                    values="1; 1.2; 1" 
+                    dur="5s" 
+                    additive="sum"
+                    repeatCount="indefinite" />
+            </rect>
+            
+        </g> <g id="text-on-path">
+            <path 
+                id="curve" 
+                d="M 100,550 Q 300,500 500,550" 
+                fill="none" 
+                stroke="none" 
+            />
+            <text class="curved-text">
+                <textPath href="#curve" startOffset="50%" text-anchor="middle">
+                    Текст на кривій (10%)
+                </textPath>
+            </text>
+        </g>
+        
+    </svg>
+
+</body>
+</html>
