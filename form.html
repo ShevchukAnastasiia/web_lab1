@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <meta name="Author" content="Шевчук Анастасія Петрівна">
+        <meta name="view port" content="width=device-width">
+        <meta name="Keywords" content="Форма, Введення, Препарати">  
+        <link rel="stylesheet" href="style.css" >
+        <title>Форма введення препаратів</title>
+    </head>
+<body bgcolor=#43c472>
+    
+    <header class="main-header">
+        <a href="menu.html" title="Перейти на головне меню" class="nav-link">Головне Меню Проекту</a>
+    </header>
+    
+    <header>
+        <h1 align="center">Аптека «Здоров’я+»</h1>
+        <p align="center">Ваше здоров’я – наша турбота!</p>
+        <hr>
+    </header>
+
+    <div class="navigation">
+        <a href="page1.html">Головна</a>
+        <a href="page2.html">Каталог</a>
+        <a href="page3.html">Новини</a>
+    </div>
+    <main style="background-color: #fff; padding: 20px; margin: 15px; border-radius: 8px;">
+
+        <h1 align="center">Форма: Введення даних про новий препарат</h1>
+        
+        <form 
+            name="new_product_form" 
+            class="product_form" 
+            dir="ltr" 
+            novalidate 
+            autocomplete="on"
+            id="main-form"
+        >
+
+            <fieldset>
+                <legend class="form-legend" title="Основна інформація" dir="ltr">Основна інформація</legend>
+
+                <div style="margin-bottom: 10px;">
+                    <label class="form-label" for="product-name">Назва препарату (мін. 5 символів):</label><br>
+                    <input 
+                        type="text" 
+                        id="product-name" 
+                        name="product_name"
+                        title="Введіть повну назву препарату"
+                        style="width: 90%; border-color: blue;"
+                        autocomplete="off"
+                        class="text-input"
+                        minlength="5"
+                        required
+                    >
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label class="form-label" for="product-count">Кількість на складі:</label><br>
+                    <input type="number" id="product-count" name="product_count" value="10">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Дати та файли</legend>
+                
+                <div style="margin-bottom: 10px;">
+                    <label for="prod-date">Дата виробництва:</label><br>
+                    <input type="date" id="prod-date" name="prod_date">
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="prod-month">Термін придатності (місяць):</label><br>
+                    <input type="month" id="prod-month" name="prod_month">
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="delivery-time">Час наступної поставки:</label><br>
+                    <input type="datetimelocal" id="delivery-time" name="delivery_time">
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="prod-files">Сертифікати (можна декілька):</label><br>
+                    <input type="file" id="prod-files" name="prod_files" multiple>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Додатково</legend>
+                
+                <div style="margin-bottom: 10px;">
+                    <input type="checkbox" id="is-prescription" name="is_prescription" checked disabled>
+                    <label for="is-prescription">Рецептурний препарат (Заблоковано)</label>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="category">Категорія:</label><br>
+                    <select id="category" name="category">
+                        <optgroup label="Ліки" title="Група ліків" id="opt-group-1" lang="uk">
+                            <option value="antibiotic">Антибіотики</option>
+                            <option value="painkiller">Знеболюючі</option>
+                        </optgroup>
+                        <optgroup label="Косметика" title="Лікувальна косметика" id="opt-group-2" lang="en">
+                            <option value="cream">Креми</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="stock-level">Рівень заповнення складу:</label><br>
+                    <meter 
+                        id="stock-level" 
+                        class="stock-meter" 
+                        min="0" max="100" 
+                        low="30" high="75" optimum="80" 
+                        value="25"
+                        title="Наявність на складі"
+                    >25%</meter>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="calc-result">Розрахунок (К-сть * 5):</label>
+                    <output 
+                        name="calculated_output" 
+                        for="product-count"
+                        id="calc-result"
+                        style="font-weight: bold; color: green;"
+                        lang="en"
+                        dir="ltr"
+                    >50</output>
+                </div>
+
+                <details class="details-section" dir="ltr" open>
+                    <summary>Інструкція для заповнення</summary>
+                    <p>Заповніть усі поля уважно. Поля, позначені *, є обов'язковими (для нашого JS).</p>
+                </details>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Відправка та спеціальні поля</legend>
+
+                <div style="margin-bottom: 10px;">
+                    <label for="prod-key">Ключ безпеки (Застаріле поле):</label><br>
+                    <keygen 
+                        id="prod-key" 
+                        name="security_key"
+                        title="Генератор ключів"
+                        disabled
+                        style="opacity: 0.5;"
+                        autofocus 
+                    >
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label>Відправити (як зображення):</label><br>
+                    <input 
+                        type="image" 
+                        src="images/drugs.jpg" 
+                        alt="Відправити"
+                        width="150"
+                        formtarget="_blank"
+                        formenctype="multipart/form-data"
+                    >
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <input type="submit" value="Відправити">
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <button 
+                        type="submit" 
+                        value="send_get" 
+                        formmethod="get"
+                        autofocus
+                        id="main-submit-btn"
+                    >
+                        Відправити
+                    </button>
+                </div>
+
+                <div id="form-status-message" style="margin-top: 15px; font-weight: bold;"></div>
+
+            </fieldset>
+
+        </form>
+
+        <fieldset>
+            <legend>Поле поза формою</legend>
+            <label for="notes">Нотатки:</label><br>
+            <textarea 
+                id="notes" 
+                name="notes"
+                form="main-form" 
+                rows="5"
+                cols="60"
+                readonly
+                minlength="10"
+                wrap="hard"
+                lang="uk"
+            >Це поле 'textarea' знаходиться поза тегом <form>, але пов'язане з ним через атрибут form="main-form". Атрибут wrap="hard" означає, що переноси рядків будуть відправлені. Поле 'readonly'.</textarea>
+        </fieldset>
+
+    </main>
+    <footer>
+        <hr>
+        <p align="center">© 2025 Аптека «Здоров’я+». Всі права захищені.</p>
+        <p align="center">Контакти: info@zdorovya-plus.ua | Тел.: +380 44 123 4567</p>
+    </footer>      
+
+    <script src="script.js"></script>
+</body>
+</html>

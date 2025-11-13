@@ -264,5 +264,80 @@ input:checked + label {
   unicode-bidi: normal; /* unicode-bidi: normal */
 }
 
+/* =================================================== */
+/* === СТИЛІ ДЛЯ НАВІГАЦІЇ (Додано Помічником) === */
+/* =================================================== */
 
+/* --- Стиль для шапки (посилання на Головне Меню) --- */
+header.main-header {
+    background-color: #f4f4f4; /* Світлий фон для шапки */
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #43c472; /* Акцентний колір з вашого HTML */
+}
+header.main-header a {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #005500; /* Темно-зелений */
+    text-decoration: none;
+}
+header.main-header a:hover {
+    text-decoration: underline;
+}
+
+/* --- Спільний стиль для ОБОХ ВАШИХ меню --- 
+  (і для .navigation з page1.html, і для .main-navigation з menu.html)
+*/
+.navigation,
+.main-navigation {
+    background-color: #737373; /* Темний фон для панелі меню */
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(129, 129, 129, 0.1);
+}
+
+/* --- Стилі для посилань в .navigation (page1.html) --- */
+.navigation a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none; /* Прибираємо підкреслення */
+    font-family: Geneva, sans-serif;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.navigation a:hover {
+    background-color: #555; /* Фон при наведенні */
+    color: white; /* Переконуємось, що колір лишається білим */
+}
+
+/* --- Стилі для посилань в .main-navigation (menu.html) --- */
+.main-navigation ul {
+    list-style-type: none; /* Прибираємо маркери списку */
+    padding: 0;
+    margin: 0;
+}
+.main-navigation li {
+    display: inline-block; /* Робимо елементи в один рядок */
+    margin: 0 5px;
+}
+.main-navigation li a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none; /* Прибираємо підкреслення */
+    font-family: Geneva, sans-serif;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.main-navigation li a:hover {
+    background-color: #555; /* Фон при наведенні */
+    color: white; /* Переконуємось, що колір лишається білим */
+}
+
+/* --- Виправляємо сині посилання в .main-navigation --- */
+.main-navigation li a:link {
+    color: white;
+}
 
