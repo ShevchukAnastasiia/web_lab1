@@ -341,3 +341,56 @@ header.main-header a:hover {
     color: white;
 }
 
+ 
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        svg {
+            border: 1px solid #000;
+            background-color: #fff;
+            max-width: 600px;
+            width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        /* === Стилі для нової системи координат === */
+        
+        /* Всі фігури робота */
+        .robot-shape {
+            fill: #0000FF;
+            stroke: #000;
+            stroke-width: 2; /* Зробив лінії товстішими */
+        }
+        
+        /* Осі координат */
+        .axis {
+            stroke: #000;
+            stroke-width: 3;
+            marker-end: url(#arrowhead);
+        }
+        
+        /* Насічки (ticks) */
+        .ticks {
+            stroke: #000;
+            stroke-width: 2;
+        }
+        
+        /* Текст/цифри на осях */
+        .tick-label {
+            font-size: 20px;
+            font-family: 'Arial Narrow', sans-serif;
+            text-anchor: middle;
+            fill: #000;
+        }
+        
+        /* Текст на кривій */
+        .curved-text {
+            font-size: 24px;
+            font-weight: bold;
+            fill: #1a0dab;
+        }
+
