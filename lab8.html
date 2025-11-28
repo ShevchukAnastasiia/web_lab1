@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №8 - Виправлена</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            background-color: #fff;
+            border: 2px dashed red;
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Лабораторна робота №8</h2>
+    <p>Клікніть по малюнку, щоб запустити анімацію.</p>
+
+    <canvas id="drawingCanvas" width="600" height="500">
+        Ваш браузер не підтримує Canvas.
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById("drawingCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let isAnimating = false;
+        let animationTime = 0;
+
+        // Центр полотна
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.save();
+            
+            // 1. Переносимо нульову точку в центр екрану
+            ctx.translate(centerX, centerY);
+            
+            // 2. !!! ПЕРЕВЕРТАЄМО ВІСЬ Y !!!
+            // (1, -1) означає: X залишається таким самим, Y множиться на -1
+            ctx.scale(1, -1); 
+
+            // Намалюємо осі (тепер Y йде вгору)
+            drawAxes();
+
+            ctx.fillStyle = "blue";
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+
+            // Анімація
+            let dynamicOffset = 0;
+            let dynamicColor = "blue";
+
+            if (isAnimating) {
+                dynamicOffset = Math.sin(animationTime) * 20; 
+                dynamicColor = Math.sin(animationTime) > 0 ? "red" : "blue";
+            }
+
+            // === ФІГУРИ (Координати ті самі, але тепер відображаються правильно) ===
+            
+            // Кола (були cy=50 і -50)
+            drawCircle(100, 50, 50, "blue");
+            drawCircle(200, 50, 50, "blue");
+            drawCircle(100, -50, 50, dynamicColor); // Анімоване коло
+
+            // Прямокутники
+            drawRect(0, 50, 50, 50, "blue");
+            drawRect(250, 50, 50, 50, "blue");
+
+            drawRect(0, -100, 50, 50, "blue");
+            drawRect(250, -100, 50, 50, "blue");
+            drawRect(200, -50, 50, 50, "blue");
+
+            // Цей прямокутник рухається
+            drawRect(150, -100 + dynamicOffset, 50, 50, "orange");
+
+            ctx.restore();
+
+            if (isAnimating) {
+                animationTime += 0.1;
+                requestAnimationFrame(draw);
+            }
+        }
+
+        function drawCircle(cx, cy, r, color) {
+            ctx.beginPath();
+            // Зверніть увагу: для кола context.arc малюється за годинниковою стрілкою,
+            // при scale(1,-1) це технічно стає проти годинникової, але візуально коло однакове.
+            ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function drawRect(x, y, w, h, color) {
+            ctx.beginPath();
+            // Увага: Canvas малює rect від лівого ВЕРХНЬОГО кута вниз.
+            // Оскільки ми перевернули вісь Y (scale 1, -1), "низ" тепер став "верхом".
+            // Щоб зберегти логіку SVG координат, ми малюємо як є.
+            ctx.rect(x, y, w, h);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function drawAxes() {
+            ctx.beginPath();
+            ctx.strokeStyle = "#ccc";
+            ctx.lineWidth = 1;
+            // Вісь X
+            ctx.moveTo(-300, 0); ctx.lineTo(300, 0);
+            // Вісь Y
+            ctx.moveTo(0, -250); ctx.lineTo(0, 250);
+            ctx.stroke();
+        }
+
+        canvas.addEventListener('mousedown', function() {
+            isAnimating = !isAnimating;
+            if (isAnimating) {
+                draw();
+            }
+        });
+
+        draw();
+
+    </script>
+</body>
+</html>
