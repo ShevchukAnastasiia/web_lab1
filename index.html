@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №9</title>
+    <style>
+        body {
+            font-family: 'Arial Narrow', sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            color: #333;
+        }
+        h2 {
+            font-weight: 700;
+            text-align: center;
+            text-transform: capitalize;
+        }
+        .media-container {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        form {
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 15px;
+        }
+        select, button, input {
+            padding: 8px;
+            margin: 5px;
+            font-family: 'Arial Narrow', sans-serif;
+        }
+        figure {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        figcaption {
+            font-style: normal;
+            font-variant: small-caps;
+            margin-top: 10px;
+            color: #555;
+        }
+        audio, video {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function set_audio() {
+            var sel = document.getElementById("audioSelect");
+            var player = document.getElementById("audioPlayer");
+            var videoPlayer = document.getElementById("videoPlayer");
+            
+            player.src = "audio/" + sel.value;
+            player.play();
+            
+            videoPlayer.pause();
+        }
+
+        function set_video() {
+            var sel = document.getElementById("videoSelect");
+            var player = document.getElementById("videoPlayer");
+            var audioPlayer = document.getElementById("audioPlayer");
+
+            player.src = "video/" + sel.value;
+            player.play();
+            
+            audioPlayer.pause(); 
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Медіа Бібліотека</h2>
+
+    <div class="media-container">
+        <figure>
+            <figcaption>Аудіо</figcaption>
+            
+            <form novalidate> 
+                <label for="audioSelect">Список треків:</label>
+                <select id="audioSelect" onchange="set_audio()" autofocus> 
+                    <option value="" disabled selected>Оберіть файл</option>
+                    <option value="song1.mp3">song1.mp3</option>
+                    <option value="song2.mp3">song2.mp3</option>
+                    <option value="song3.mp3">song3.mp3</option>
+                </select>
+            </form>
+
+            <audio id="audioPlayer" controls preload="metadata">
+                <source src="" type="audio/mp3">
+            </audio>
+        </figure>
+    </div>
+
+    <div class="media-container">
+        <figure>
+            <figcaption>Відео</figcaption>
+
+            <form>
+                <label for="videoSelect">Список відео:</label>
+                <select id="videoSelect" onchange="set_video()">
+                    <option value="" disabled selected>Оберіть файл</option>
+                    <option value="video1.mp4">video1.mp4</option>
+                    <option value="video2.mp4">video2.mp4</option>
+                    <option value="video3.mp4">video3.mp4</option>
+                </select>
+            </form>
+
+            <video id="videoPlayer" controls poster="images/img1.jpg" height="300">
+                <source src="" type="video/mp4">
+            </video>
+        </figure>
+    </div>
+
+    <div class="media-container">
+        <h3>Embed</h3>
+        <embed src="images/img2.jpg" type="image/jpeg" width="300" height="200">
+    </div>
+
+</body>
+</html>
